@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles1.css">
+  <script src="payfunction.js"></script>
+  <script src="popup.js"></script>
+  <script src="pdf2.js"></script>
+  <script src="pdf.js"></script>
+  <script src="deduction.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <h1>
+    <center>PAY DRAWN</center>
+  </h1>
+  <div id="table-container">
+
+    <div id="left-table">
+
+      <table id="myTable1">
+        <thead>
+          <tr>
+            <th>
+              <CENter>DUES NAME</CENter>
+            </th>
+            <th>
+              <CENter>VALUE</CENter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Start Date</td>
+
+            <td><input type="date" id="start_date"></td>
+          </tr>
+          <tr>
+            <td>End Date</td>
+            <td><input type="date" id="end_date"></td>
+
+          </tr>
+          <tr>
+            <td>Level</td>
+            <td>
+              <select id="column-select" onchange="feedOption()">
+                <option value="0">select</option>
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+                <option value="4">5</option>
+                <option value="5">6</option>
+                <option value="6">7</option>
+                <option value="7">8</option>
+                <option value="8">9</option>
+                <option value="9">10</option>
+                <option value="10">11</option>
+                <option value="11">12</option>
+                <option value="12">13</option>
+                <option value="13">14</option>
+                <option value="14">15</option>
+                <option value="15">16</option>
+                <option value="16">17</option>
+                <option value="17">18</option>
+                <option value="18">19</option>
+                <option value="19">20</option>
+                <option value="20">21</option>
+                <option value="21">22</option>
+                <option value="22">23</option>
+                <option value="23">24</option>
+                <option value="24">25</option>
+                <option value="25">26</option>
+                <option value="26">27</option>
+                <option value="27">28</option>
+                <option value="28">29</option>
+                <option value="29">30</option>
+                <option value="30">31</option>
+                <option value="31">32</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>INDEX</td>
+            <td>
+
+              <select id="index1">
+
+              </select>
+
+
+            </td>
+          </tr>
+          <tr>
+            <td>Increment Month</td>
+            <td>
+              <select id="inMonth">
+                <option value="Jan">Jan</option>
+                <option value="Apr">Apr</option>
+                <option value="Jul">Jul</option>
+                <option value="Oct">Oct</option>
+              </select>
+            </td>
+          <tr>
+            <td>HRA GRADE</td>
+            <td>
+              <select id="hraGrade">
+                <option value="0">GRADE-I(a)</option>
+                <option value="1">GRADE-I(b)</option>
+                <option value="2">GRADE-II</option>
+                <option value="3">GRADE-III</option>
+                <option value="4">GRADE-IV</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>CCA</td>
+            <td>
+              <select id="ccaGrade">
+                <option value="-1">No</option>
+                <option value="0">GRADE-I</option>
+                <option value="1">GRADE-II</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td id="hillsAllowance">HILLS ALLOWANCE</td>
+            <td id="yesNoContainer">
+
+              <label for="yesOption">
+                <input type="radio" id="yesOption" name="yesNo" value="1" onchange="showWinterAllowance()">
+                Yes
+              </label>
+
+              <label for="noOption">
+                <input type="radio" id="noOption" name="yesNo" value="-1" onchange="hideWinterAllowance()">
+                No
+              </label>
+
+              <div id="winterAllowance" style="display: none;">
+                <label for="winterAllowanceCheckbox">
+                  <input type="checkbox" id="winterAllowanceCheckbox" name="winterAllowanceCheckbox" value="1">
+                  Winter Allowance
+                </label>
+              </div>
+
+            </td>
+
+            <script>
+              function showWinterAllowance() {
+                const winterAllowanceDiv = document.getElementById('winterAllowance');
+                if (winterAllowanceDiv) {
+                  winterAllowanceDiv.style.display = 'block';
+                }
+              }
+
+              function hideWinterAllowance() {
+                const winterAllowanceDiv = document.getElementById('winterAllowance');
+                if (winterAllowanceDiv) {
+                  winterAllowanceDiv.style.display = 'none';
+                }
+              }
+            </script>
+            <div>
+          <tr>
+            <td>PERSONAL PAY</td>
+            <td>
+
+              <label for="option1300">
+                <input type="radio" id="option1300" name="personalPay" value="1300">
+                1300
+              </label>
+
+              <label for="option2000">
+                <input type="radio" id="option2000" name="personalPay" value="2000">
+                2000
+              </label>
+
+
+
+            </td>
+          </tr>
+          <tr>
+            <td><label for="sls">SLS</label></td>
+            <td><input type="checkbox" id="sls" name="sls" onclick="openPopup()"></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="dueName1" placeholder="Enter Due Name"></td>
+            <td><input type="number" id="dueAmount1" placeholder="Enter Due Amount"></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="dueName2" placeholder="Enter Due Name"></td>
+            <td><input type="number" id="dueAmount2" placeholder="Enter Due Amount"></td>
+          </tr>
+    </div>
+
+
+
+    </tbody>
+
+    </table>
+  </div>
+  <!------------------right table----------------------------------------->
+  <div id="right-table">
+
+    <table id="myTable2">
+      <thead>
+        <tr>
+          <th>
+            <CENter>DEDUCTION NAME</CENter>
+          </th>
+          <th>
+            <CENter>VALUE</CENter>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <label for="scheme">SCHEME:</label>
+          </td>
+          <td>
+            <input type="radio" id="gps" name="scheme" value="GPS" onclick="ded()">
+            <label for="gps">GPS</label>
+            <input type="radio" id="gpf" name="scheme" value="GPF" onclick="ded()">
+            <label for="gpf">GPF</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="gpfAmount" id="gpfAmountLabel" style="display:none;">Enter GPF Amount</label></td>
+          <td><input type="number" id="gpfAmount" name="gpfAmount" placeholder="Enter GPS Amount" style="display:none;">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="fbf">Family Benefit Fund</label></td>
+          <td><input type="checkbox" id="fbf" name="fbf"></td>
+        </tr>
+
+        <tr>
+          <td><label for="spf">Special Provident Fund:</label></td>
+          <td>
+            <input type="radio" id="spf50" name="spf" value="50">
+            <label for="spf50">50</label>
+            <input type="radio" id="spf70" name="spf" value="70">
+            <label for="spf70">70</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="nhif">New Health Insurance Scheme</label></td>
+          <td><input type="checkbox" id="nhis" name="nhis"></td>
+        </tr>
+        <tr>
+          <td><label for="fbf">Postal Life Insurance</label></td>
+          <td><input type="number" id="pli" placeholder="Enter PLI Amount"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="deduction1Name" placeholder="Enter Deduction Name"></td>
+          <td><input type="number" id="deduction1Value" placeholder="Enter Deduction Amount"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="deduction2Name" placeholder="Enter Deduction Name"></td>
+          <td><input type="number" id="deduction2Value" placeholder="Enter Deduction Amount"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+  <!------------------popup------------------------------------->
+  </div>
+  <div>
+    <div id="popup" class="popup">
+
+
+      <table id="myTable3">
+        <tr>
+          <td>SLS MONTH</td>
+          <td><select name="slsMonth" id="slsMonth" onchange="slsChange()"></select></td>
+        </tr>
+      </table>
+      <table id="myTable4"></table>
+
+      <tr>
+        <td><button onclick="closePopup()">Close</button></td>
+        <td><button onclick="closePopup()">OK</button></td>
+      </tr>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+
+  </div>
+  <!----------------------------------------------------------------------->
+
+  <!----------------------------edit download pdf or excel---------------------------------------->
+  <div id="download" style="display: none;">
+    <tr>
+      <td><button onclick="toggleTransformation()">edit</button></td>
+      <td><select id="formatSelect">
+          <option value="pdf">PDF</option>
+          <option value="excel">Excel</option>
+        </select></td>
+      <td><button onclick="downloadTable()">Download</button></td>
+    </tr>
+  </div>
+  <center>
+    <table id="myTable">
+      <center></center>
+    </table>
+  </center>
+
+
+  <!-------------------------------------------------------------------->
+
+  <script>
+    const gpsRadio = document.getElementById('gps');
+    const gpfRadio = document.getElementById('gpf');
+    const gpfAmountInput = document.getElementById('gpfAmount');
+    const gpfAmountLabel = document.getElementById('gpfAmountLabel');
+
+    gpsRadio.addEventListener('change', function () {
+      if (this.checked) {
+        gpfAmountInput.style.display = 'none';
+        gpfAmountLabel.style.display = 'none';
+      }
+    });
+
+    gpfRadio.addEventListener('change', function () {
+      if (this.checked) {
+        gpfAmountInput.style.display = 'inline';
+        gpfAmountLabel.style.display = 'inline';
+      }
+    });
+  </script>
+
+  <tr>
+    <center>
+      <td>
+      <td><button type="submit" id="submit" onclick="dateF()">submit</button></td>
+      </td>
+    </center>
+  </tr>
+
+</body>
+
+</html>

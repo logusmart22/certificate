@@ -1,0 +1,248 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#table-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+#left-table,
+#right-table {
+  width: 48%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  #left-table,
+  #right-table {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+#left-table table,
+#right-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#left-table th,
+#left-table td,
+#right-table th,
+#right-table td {
+  padding: 8px;
+  border-bottom: 1px solid #b48484;
+  text-align: left;
+}
+
+/* Different colors for table headers */
+#left-table th {
+  background-color: #d34141;
+  color: white;
+}
+
+#right-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Same color for all table headers */
+#left-table th,
+#right-table th {
+  background-color: #333;
+  color: white;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="text"] {
+  color: #d34141;
+}
+
+input[type="date"] {
+  color: #4CAF50;
+}
+
+input[type="number"] {
+  color: #333;
+}
+
+select {
+  color: #9370DB;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%239370DB'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+}
+
+select option {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Radio and checkbox styles */
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+label {
+  font-weight: bold;
+}
+
+/* Submit button styles */
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #56787e;
+}
+
+/* Styles for #myTable */
+
+
+
+
+
+/* Styles for the popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  width: 80%; /* Default width */
+  max-width: 400px; /* Adjust as needed */
+  max-height: 80%; /* Adjust as needed */
+  overflow: auto; /* Enable scrolling if content exceeds max height */
+}
+
+/* Styles for the overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Styles for myTable4 */
+#myTable4 {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#myTable4 th,
+#myTable4 td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#myTable4 th {
+  background-color: #f2f2f2;
+}
+
+/* Styles for buttons under myTable4 */
+#myTable4 button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#myTable4 button:hover {
+  background-color: #45a049;
+}
+
+/* Media query for smaller screens (phones) */
+@media only screen and (max-width: 600px) {
+  .popup {
+    width: 90%; /* Adjust as needed */
+  }
+}
+
+
+
+/* Table styling */
+
+
+/* style.css */
+
+
+
+
+/* Table styling */
+#myTable {
+  width: 50%;
+  border-collapse: collapse;
+  border: 1px solid #376d91;
+}
+
+#myTable th,
+#myTable td {
+  border: 1px solid #9b5d5d;
+  padding: 8px;
+  text-align: center;
+}
+
+#myTable th {
+  background-color: #529c7d;
+}
+
+#myTable input[type="number"] {
+  border: 1px solid #ccc;
+  padding: 4px;
+  text-align: center;
+  width: 2cm; /* Reset width to auto */
+}
