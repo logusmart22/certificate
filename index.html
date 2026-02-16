@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDoc A4 Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script src="new.js"></script>
+    <script src="camp.js"></script>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        /* General Styles */
+        body {
+            
+            /* Adjust this based on navbar height */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #0044cc;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+      
+
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Upload Container */
+        .upload-container {
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        /* File Upload Button */
+        .custom-file-label {
+            display: inline-block;
+            background: #0044cc;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        input[type="button"] {
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        input[type="button"]:hover {
+            background: #218838;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .navbar ul li {
+                margin: 5px 0;
+            }
+
+            .upload-container {
+                width: 90%;
+            }
+        }
+    </style>
+    <style>
+        select {
+            width: 200px;
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+        }
+
+        select:hover {
+            border-color: #45a049;
+        }
+
+        select:focus {
+            border-color: #388E3C;
+            box-shadow: 0 0 5px rgba(56, 142, 60, 0.5);
+        }
+    </style>
+
+    <style>
+        .logo {
+            /* White background */
+            padding: 10px;
+            /* Adds spacing inside */
+            display: inline-block;
+            /* Adjust width to content */
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        .logo a {
+            color: white;
+            /* Link color */
+            text-decoration: none;
+            /* Remove underline */
+            font-weight: bold;
+            /* Make text bold */
+        }
+
+        .logo a:hover {
+            color: rgb(0, 1, 22);
+            /* Changes color when hovered */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div id="hideIngg">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="https://payarrears.blogspot.com/">payarrears.blogspot.com</a>
+            </div>
+            <ul>
+                <li><a href="https://payarrears.blogspot.com/">Home</a></li>
+                <li><a href="model.xlsx" download>Download</a></li>
+                <li><a onclick="printPage()">Print</a></li>
+                <li><a href="app/index.html">"PayDrawn(7th Pay)"</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Upload Section -->
+    <div id="hideIng">
+        <div class="upload-container">
+            <h2>Upload Your Excel File</h2>
+            <div class="upload-box">
+                <label for="fileInput" class="custom-file-label">Choose File</label>
+                <input type="file" id="fileInput" accept=".xlsx" onchange="updateFileName()">
+                <input type="button" value="Generate" onclick="readExcel()">
+                <p id="fileNameDisplay"></p>
+                <select name="category">
+                    <option value="1">Conduct</option>
+                    <option value="2">Attendance</option>
+                    <option value="3">Conduct and Attendance</option>
+                    <option value="4">Camp Attendance</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
