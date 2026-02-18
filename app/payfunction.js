@@ -728,12 +728,10 @@ function dateF() {
         }
 
         //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-        function getLastDayOfMonth(year, month) {
-            // Create a new Date object, setting the day to 0 will make it the last day of the previous month
-            const lastDay = new Date(year, month + 1, 0);
-            // Return the day component of the Date object
-            return lastDay.getDate();
-        }
+          function getLastDayOfMonth(year, month) {
+        return new Date(year, month, 0).getDate();
+    }
+
 
         //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
     }
@@ -823,4 +821,5 @@ function dateF() {
     }
 
 //mytable input lenth decide code
+
 
