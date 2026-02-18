@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Last Date of Month</title>
+</head>
+<body>
+
+<h2>Find Last Date of Month</h2>
+
+<label>Select Year:</label>
+<input type="number" id="year" value="2026">
+
+<br><br>
+
+<label>Select Month:</label>
+<select id="month">
+    <option value="1">January</option>
+    <option value="2">February</option>
+    <option value="3">March</option>
+    <option value="4">April</option>
+    <option value="5">May</option>
+    <option value="6">June</option>
+    <option value="7">July</option>
+    <option value="8">August</option>
+    <option value="9">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+</select>
+
+<br><br>
+
+<button onclick="findLastDate()">Get Last Date</button>
+
+<h3 id="result"></h3>
+
+<script>
+
+function getLastDayOfMonth(year, month)
+{
+    return new Date(year, month, 0).getDate();
+}
+
+function findLastDate()
+{
+    var year = document.getElementById("year").value;
+    var month = document.getElementById("month").value;
+
+    var lastDate = getLastDayOfMonth(year, month);
+
+    document.getElementById("result").innerHTML =
+        "Last date is : " + lastDate;
+}
+
+</script>
+
+</body>
+</html>
